@@ -28,6 +28,7 @@ namespace OnlineExam.API
         {
            //services.AddDbContext<>
 
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddSwaggerGen(c =>
