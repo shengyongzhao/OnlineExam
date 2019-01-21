@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.Swagger;
+using OnlineExam.Infrastructure.Database;
+using Microsoft.EntityFrameworkCore;
 
 namespace OnlineExam.API
 {
@@ -26,9 +28,12 @@ namespace OnlineExam.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-           //services.AddDbContext(clint-server)
+            services.AddMvc();
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddDbContext<MyContext>(Options => {
+                Options.UseSqlServer(Configuration.GetConnectionString("connectionString"));
+            });
+
 
             services.AddSwaggerGen(c =>
             {
