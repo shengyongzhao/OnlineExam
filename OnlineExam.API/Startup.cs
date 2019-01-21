@@ -30,8 +30,9 @@ namespace OnlineExam.API
         {
             services.AddMvc();
 
-            services.AddDbContext<MyContext>(Options => {
-                Options.UseSqlServer(Configuration.GetConnectionString("connectionString"));
+            services.AddDbContext<MyContext>(Options =>
+            {
+                Options.UseSqlServer("Server=47.97.96.63;Database=DbOnlineExam;Trusted_Connection=True;MultipleActiveResultSets=true;User ID=sa;Password=sa!QAZ@WSX3edc");
             });
 
 
