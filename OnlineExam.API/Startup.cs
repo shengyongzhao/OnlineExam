@@ -34,6 +34,7 @@ namespace OnlineExam.API
                 Options.UseSqlServer(Configuration.GetConnectionString("connectionString"));
             });
 
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = "ConlineExam API", Version = "v1" });
